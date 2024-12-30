@@ -104,7 +104,7 @@ body {
 .right-box {
   width: 50%;
   padding: 0px;
-  border-radius: 10px;
+  border-radius: 15px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px;
   position: absolute;
   top: 0;
   left: 0;
@@ -131,21 +131,55 @@ body {
   align-items: stretch; /* Stretch the small boxes to fill the entire width of the right box */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
   padding: 0; /* Remove padding from the right box */
-}
+} 
 
 .right-box .box {
   background-color: #1F2122;
-  width: 100%; /* Ensure each small box takes the full width */
+  width: 100%;
   height: 70px;
   margin-bottom: 10px;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
   color: white;
-  cursor: pointer; /* Show pointer on hover */
 }
 
 .right-box .box:first-child {
   height: 300px; /* Make the first box larger */
+  display: flex; /* Keep using flexbox for layout */
+  justify-content: flex-start; /* Align text to the left */
+  align-items: flex-start; /* Align text to the top */
+  position: relative; /* Set position relative for absolute positioning of text */
 }
+
+.right-box .box:first-child h1 {
+  font-size: 2rem;
+  position: absolute; /* Absolute positioning for the "Discover" text */
+  top: 0; /* Align at the top of the box */
+  left: 0; /* Align to the left of the box */
+  margin: 50px; /* Remove any default margin */
+}
+
+.right-box .box:first-child p {
+  font-size: 1rem;
+  position: absolute; /* Absolute positioning for the "Discover" text */
+  bottom: 0; /* Align at the top of the box */
+  left: 0; /* Align to the left of the box */
+  margin: 50px; /* Remove any default margin */
+}
+
+.right-box .box .p1 {
+  font-size: 1rem;
+  margin: 20px; /* Remove any default margin */
+}
+
+.right-box .box .p2 {
+  font-size: 1rem;
+  margin: 20px; /* Remove any default margin */
+  margin-left: auto;
+}
+
+/* Hover effect for all boxes except the first one */
+.right-box .box:not(:first-child):hover {
+  color: #B042F0; /* Change text color to purple */
+}  
