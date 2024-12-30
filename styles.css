@@ -21,8 +21,7 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -31,7 +30,6 @@ body {
 .nav-link {
   text-decoration: none;
   color: white;
-  font-weight: 800;
 }
 
 .nav-link.active {
@@ -72,14 +70,14 @@ body {
 
 .description {
   font-size: 0.5rem;
-  font-size: clamp(0.5rem, 0.3786407766990291rem + 0.517799352750809vw, 1rem);
+  font-size: clamp(0.5rem, 0.318rem + 0.485vw, 0.9rem);  
   line-height: 1.5;
   letter-spacing: 0;
   position: absolute;
   top: 120%; /* Positioned under the logo */
   right: 0;
   min-width: 100px;
-  max-width: 450px;
+  max-width: 475px;
   height: fit-content;
   text-align: justify;
   z-index: 2;
@@ -136,7 +134,7 @@ body {
 .right-box .box {
   background-color: #1F2122;
   width: 100%;
-  height: 70px;
+  height: 60px;
   margin-bottom: 10px;
   border-radius: 5px;
   display: flex;
@@ -161,7 +159,7 @@ body {
 }
 
 .right-box .box:first-child p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   position: absolute; /* Absolute positioning for the "Discover" text */
   bottom: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
@@ -169,17 +167,19 @@ body {
 }
 
 .right-box .box .p1 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 20px; /* Remove any default margin */
 }
 
 .right-box .box .p2 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 20px; /* Remove any default margin */
   margin-left: auto;
+  color: #FFFFFF80;
 }
 
-/* Hover effect for all boxes except the first one */
-.right-box .box:not(:first-child):hover {
-  color: #B042F0; /* Change text color to purple */
-}  
+/* Ensure the hover effect applies only to the text elements (.p1 and .p2) */
+.right-box .box:not(:first-child):hover .p1,
+.right-box .box:not(:first-child):hover .p2 {
+  color: #B042F0; /* Change the text color to purple on hover */
+}
