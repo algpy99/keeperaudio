@@ -4,4 +4,3 @@ document.querySelectorAll('.right-box .box').forEach(box => {
       document.getElementById('left-box-img').src = imageSrc;
     });
   });
-  

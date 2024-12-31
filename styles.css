@@ -16,24 +16,23 @@ body {
   position: relative;
 }
 
-/* Existing Navbar styles */
+/* Navbar styles */
 .navbar {
   position: absolute;
   top: 15px;
-  left: 30px;
-  font-size: 0.9rem;
+  left: 20px; /* Add a 15px margin on the left */
+  right: 20px; /* Add a 15px margin on the right */
   display: flex;
+  justify-content: space-between; /* Evenly distribute the items across the width */
   align-items: center;
   gap: 20px;
+  font-size: 0.9rem;
+  width: calc(100% - 40px); /* Ensure the navbar spans the full width minus the 15px margins on both sides */
 }
 
 .nav-link {
   text-decoration: none;
   color: white;
-}
-
-.nav-link:first-child {
-  font-weight: bold;
 }
 
 .nav-link.active {
@@ -71,28 +70,41 @@ body {
   text-align: center;
   z-index: 1;
   font-weight: 800;
+  animation: fadeIn 1s ease-in forwards; /* Apply fade-in and move-up animation */
 }
 
-.logo-keeper, 
-.logo-audio {
+.logo-keeper{
   color: #1F2122; /* Change to white on hover */
-  transition: color 0.6s ease; /* Smooth transition in both directions */
+  transition: color 0.5s ease; /* Smooth transition in both directions */
 }
 
-
-.logo-keeper:hover, 
-.logo-audio:hover {
+.logo-audio{
   color: white; /* Change to white on hover */
 }
 
 
+.logo-keeper:hover{
+  color: white; /* Change to white on hover */
+}
+
+/* Keyframe for fade-in and move-up effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    opacity: 1; /* End with opacity 1 (fully visible) */
+  }
+}
+
 .description {
   font-size: 0.5rem;
   font-size: clamp(0.5rem, 0.318rem + 0.485vw, 0.9rem);  
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
   position: absolute;
-  top: 120%; /* Positioned under the logo */
+  top: 130%; /* Positioned under the logo */
   right: 0;
   min-width: 100px;
   max-width: 475px;
@@ -101,6 +113,15 @@ body {
   z-index: 2;
   color: white;
   mix-blend-mode: difference;
+  opacity: 0; /* Initially invisible */
+  pointer-events: none; /* Prevent interaction while invisible */
+  transition: opacity 0.5s ease 0.2s; /* Smooth transition for opacity */
+}
+
+/* When hovering over .logo-keeper, make description visible */
+.logo-keeper:hover + .logo-audio + .description {
+  opacity: 1;
+  pointer-events: all; /* Allow interaction */
 }
 
 /* Styles specific to the discover page */
@@ -208,4 +229,9 @@ body {
 .right-box .box:not(:first-child):hover {
   height: 75px;
   transition: 0.3s;
+}
+
+/* Style for highlighted text */
+.highlight {
+  color: #B042F0; /* Purple color */
 }
