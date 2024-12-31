@@ -61,15 +61,22 @@ body {
   height: fit-content;
 }
 
-.main-logo {
+.logo-part {
   font-size: 3rem;
   font-size: clamp(3rem, 0.33009708737864063rem + 11.3915857605178vw, 14rem);
   margin: 0;
-  line-height: 1;
+  line-height: 0.8;
   letter-spacing: -0.08em;
-  color: white;
+  color: #1F2122;
   text-align: center;
   z-index: 1;
+  transition: 0.2s;
+  font-weight: 800;
+}
+
+.logo-keeper:hover, .logo-audio:hover{
+  transition: 0.5s;
+  color: white; /* New color for 'keeper' */
 }
 
 .description {
@@ -144,6 +151,7 @@ body {
   display: flex;
   align-items: center;
   color: white;
+  transition: 0.1s;
 }
 
 .right-box .box:first-child {
@@ -186,4 +194,11 @@ body {
 .right-box .box:not(:first-child):hover .p1,
 .right-box .box:not(:first-child):hover .p2 {
   color: #B042F0; /* Change the text color to purple on hover */
+  font-size: 1rem;
+}
+
+.right-box .box:not(:first-child):hover,
+.right-box .box:not(:first-child):hover {
+  height: 75px;
+  transition: 0.3s;
 }
