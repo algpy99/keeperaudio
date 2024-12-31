@@ -67,17 +67,24 @@ body {
   margin: 0;
   line-height: 0.8;
   letter-spacing: -0.08em;
-  color: #1F2122;
+  color: #1F2122; /* Default color */
   text-align: center;
   z-index: 1;
-  transition: 0.2s;
   font-weight: 800;
 }
 
-.logo-keeper:hover, .logo-audio:hover{
-  transition: 0.5s;
-  color: white; /* New color for 'keeper' */
+.logo-keeper, 
+.logo-audio {
+  color: #1F2122; /* Change to white on hover */
+  transition: color 0.6s ease; /* Smooth transition in both directions */
 }
+
+
+.logo-keeper:hover, 
+.logo-audio:hover {
+  color: white; /* Change to white on hover */
+}
+
 
 .description {
   font-size: 0.5rem;
