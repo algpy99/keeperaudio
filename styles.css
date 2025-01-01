@@ -20,23 +20,34 @@ body {
 .navbar {
   position: absolute;
   top: 15px;
-  left: 20px; /* Add a 15px margin on the left */
-  right: 20px; /* Add a 15px margin on the right */
-  display: flex;
-  justify-content: space-between; /* Evenly distribute the items across the width */
-  align-items: center;
-  gap: 20px;
+  left: 20px; /* Ensure 20px margin from the left edge */
+  right: 20px; /* Keep the right margin consistent */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align all items to the left */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Space between navigation items */
   font-size: 0.9rem;
-  width: calc(100% - 40px); /* Ensure the navbar spans the full width minus the 15px margins on both sides */
+  width: calc(100% - 40px); /* Full width minus the left and right margins */
 }
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: white; /* Default color */
+  transition: color 0.2s ease; /* Smooth transition for hover effects */
 }
 
 .nav-link.active {
-  color: #B042F0;
+  color: #B042F0; /* Active tab is purple */
+}
+
+/* Change the color on hover if not the active tab */
+.nav-link:hover{
+  color: #B042F0; /* Hover turns non-active tabs purple */
+}
+
+/* When hovering another tab, the active tab turns white */
+.navbar:hover .nav-link.active {
+  color: #FFFFFF50;
 }
 
 /* Container styles for the landing page */
@@ -107,7 +118,7 @@ body {
   top: 130%; /* Positioned under the logo */
   right: 0;
   min-width: 100px;
-  max-width: 475px;
+  max-width: 520px;
   height: fit-content;
   text-align: justify;
   z-index: 2;
@@ -150,6 +161,22 @@ body {
   position: relative; /* Important for containing the image */
 }
 
+.left-box{
+  animation: fadeInUp 0.8s ease-in; /* Apply fade-in and move-up animation */
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,30px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
 .left-box img {
   width: 100%;
   height: 100%;
@@ -168,7 +195,20 @@ body {
   align-items: stretch; /* Stretch the small boxes to fill the entire width of the right box */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
   padding: 0; /* Remove padding from the right box */
+  animation: fadeInDown 0.8s ease-in; /* Apply fade-in and move-up animation */
 } 
+
+@keyframes fadeInDown {
+  from {
+      transform: translate3d(0,-30px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
 
 .right-box .box {
   background-color: #1F2122;
@@ -223,12 +263,6 @@ body {
 .right-box .box:not(:first-child):hover .p2 {
   color: #B042F0; /* Change the text color to purple on hover */
   font-size: 1rem;
-}
-
-.right-box .box:not(:first-child):hover,
-.right-box .box:not(:first-child):hover {
-  height: 75px;
-  transition: 0.3s;
 }
 
 /* Style for highlighted text */
