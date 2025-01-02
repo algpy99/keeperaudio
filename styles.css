@@ -16,6 +16,40 @@ body {
   position: relative;
 }
 
+/* Navbar styles */
+.navbar {
+  position: absolute;
+  top: 15px;
+  left: 20px; /* Ensure 20px margin from the left edge */
+  right: 20px; /* Keep the right margin consistent */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align all items to the left */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Space between navigation items */
+  font-size: 0.9rem;
+  width: calc(100% - 40px); /* Full width minus the left and right margins */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white; /* Default color */
+  transition: color 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.nav-link.active {
+  color: #B042F0; /* Active tab is purple */
+}
+
+/* Change the color on hover if not the active tab */
+.nav-link:hover{
+  color: #B042F0; /* Hover turns non-active tabs purple */
+}
+
+/* When hovering another tab, the active tab turns white */
+.navbar:hover .nav-link.active {
+  color: #FFFFFF50;
+}
+
 /* Container styles for the landing page */
 .landing-container {
   width: 100%;
@@ -47,35 +81,58 @@ body {
   text-align: center;
   z-index: 1;
   font-weight: 800;
+  animation: fadeIn 1s ease-in forwards; /* Apply fade-in and move-up animation */
 }
 
-.logo-keeper, 
-.logo-audio {
+.logo-keeper{
   color: #1F2122; /* Change to white on hover */
-  transition: color 0.6s ease; /* Smooth transition in both directions */
+  transition: color 0.5s ease; /* Smooth transition in both directions */
+}
+
+.logo-audio{
+  color: white; /* Change to white on hover */
 }
 
 
-.logo-keeper:hover, 
-.logo-audio:hover {
+.logo-keeper:hover{
   color: white; /* Change to white on hover */
+}
+
+/* Keyframe for fade-in and move-up effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    opacity: 1; /* End with opacity 1 (fully visible) */
+  }
 }
 
 .description {
   font-size: 0.5rem;
-  font-size: clamp(0.5rem, 0.3786407766990291rem + 0.517799352750809vw, 1rem);
+  font-size: clamp(0.5rem, 0.318rem + 0.485vw, 0.9rem);  
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
   position: absolute;
-  top: 120%; /* Positioned under the logo */
+  top: 130%; /* Positioned under the logo */
   right: 0;
   min-width: 100px;
-  max-width: 450px;
+  max-width: 520px;
   height: fit-content;
   text-align: justify;
   z-index: 2;
   color: white;
   mix-blend-mode: difference;
+  opacity: 0; /* Initially invisible */
+  pointer-events: none; /* Prevent interaction while invisible */
+  transition: opacity 0.5s ease 0.2s; /* Smooth transition for opacity */
+}
+
+/* When hovering over .logo-keeper, make description visible */
+.logo-keeper:hover + .logo-audio + .description {
+  opacity: 1;
+  pointer-events: all; /* Allow interaction */
 }
 
 /* Styles specific to the discover page */
@@ -84,7 +141,7 @@ body {
   justify-content: space-between;
   align-items: stretch;
   padding: 10px;
-  margin-top: 50px; /* Margin for navbar */
+  margin-top: 35px; /* Margin for navbar */
   width: 100%;
   height: 100vh; /* Set height to 100% of the viewport */
   box-sizing: border-box;
@@ -95,7 +152,7 @@ body {
 .right-box {
   width: 50%;
   padding: 0px;
-  border-radius: 10px;
+  border-radius: 15px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -104,11 +161,27 @@ body {
   position: relative; /* Important for containing the image */
 }
 
+.left-box{
+  animation: fadeInUp 0.8s ease-in; /* Apply fade-in and move-up animation */
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,30px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
 .left-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px;
   position: absolute;
   top: 0;
   left: 0;
@@ -122,21 +195,133 @@ body {
   align-items: stretch; /* Stretch the small boxes to fill the entire width of the right box */
   box-sizing: border-box; /* Ensure padding is included in width calculation */
   padding: 0; /* Remove padding from the right box */
+  animation: fadeInDown 0.8s ease-in; /* Apply fade-in and move-up animation */
+} 
+
+@keyframes fadeInDown {
+  from {
+      transform: translate3d(0,-30px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
 }
 
 .right-box .box {
   background-color: #1F2122;
-  width: 100%; /* Ensure each small box takes the full width */
-  height: 70px;
+  width: 100%;
+  height: 60px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
   color: white;
-  cursor: pointer; /* Show pointer on hover */
+  transition: 0.1s;
 }
 
 .right-box .box:first-child {
   height: 300px; /* Make the first box larger */
+  display: flex; /* Keep using flexbox for layout */
+  justify-content: flex-start; /* Align text to the left */
+  align-items: flex-start; /* Align text to the top */
+  position: relative; /* Set position relative for absolute positioning of text */
+}
+
+.right-box .box:first-child h1 {
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.42000000000000004rem + 2.9vw, 3.9rem);
+  position: absolute; /* Absolute positioning for the "Discover" text */
+  top: 0; /* Align at the top of the box */
+  left: 0; /* Align to the left of the box */
+  margin: 50px; /* Remove any default margin */
+}
+
+.right-box .box:first-child p {
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.6599999999999999rem + 0.2000000000000001vw, 0.9rem);
+  position: absolute; /* Absolute positioning for the "Discover" text */
+  bottom: 0; /* Align at the top of the box */
+  left: 0; /* Align to the left of the box */
+  margin: clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem);
+}
+
+.right-box .box .p1 {
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.6599999999999999rem + 0.2000000000000001vw, 0.9rem);
+  margin: 20px;
+} 
+
+.right-box .box .p2 {
+  font-size: 0.6rem;
+  font-size: clamp(0.6rem, 0.5399999999999999rem + 0.30000000000000004vw, 0.9rem);  
+  margin: 20px;
+  margin-left: auto;
+  color: #FFFFFF80;
+}
+
+/* Ensure the hover effect applies only to the text elements (.p1 and .p2) */
+.right-box .box:not(:first-child):hover .p1,
+.right-box .box:not(:first-child):hover .p2 {
+  color: #B042F0; /* Change the text color to purple on hover */
+  font-size: 1rem;
+}
+
+/* Style for highlighted text */
+.highlight {
+  color: #B042F0; /* Purple color */
+}
+
+/* Ensure the box still looks like a block element */
+.spotify-link {
+  text-decoration: none;  /* Remove the underline from the link */
+  color: inherit;  /* Inherit color from parent */
+  display: flex;  /* Use flexbox to position child elements */
+  justify-content: flex-start;  /* Align text to the left */
+  align-items: center;  /* Vertically align the text */
+  width: 100%;  /* Ensure the link covers the entire box */
+  height: 100%;  /* Ensure the link covers the entire box */
+  border-radius: 15px;  /* Keep the box's rounded corners */
+  background-color: #1F2122;  /* Set default background color */
+  transition: background-color 0.3s ease;  /* Smooth transition for hover effects */
+}
+
+/* Styles for the right box staying at the top and left box underneath on smaller screens */
+@media (max-width: 768px) {
+  .discover-container {
+    flex-direction: column;  /* Stack the boxes vertically on smaller screens */
+    height: calc(100vh - 25px);
+    }
+
+  .left-box,
+  .right-box {
+    width: 100%;  /* Make both boxes take up the full width */
+  }
+
+  .right-box {
+    margin-top: 0;  /* Ensure no extra margin at the top */
+  }
+
+  .left-box {
+    height: calc(100vh - 60px);  /* Make the left box take up the remaining height of the page */
+  }
+
+  .left-box img {
+    width: 100%;  /* Ensure the image takes up the full width */
+    height: 100%;  /* Ensure the image takes up the full height of the container */
+    object-fit: cover;  /* Make sure the image covers the container */
+    border-radius: 15px;
+  }
+
+  .right-box .box {
+    width: 100%;  /* Ensure each box inside the right box takes up the full width */
+    height: 60px;  /* Keep the height consistent */
+    margin-bottom: 10px;  /* Maintain margin between the boxes */
+  }
+
+  .right-box .box:first-child {
+    height: 250px;  /* Adjust height of the first box inside right box */
+  }
 }
