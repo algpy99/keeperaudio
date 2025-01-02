@@ -291,9 +291,11 @@ body {
 /* Styles for the right box staying at the top and left box underneath on smaller screens */
 @media (max-width: 768px) {
   .discover-container {
-    flex-direction: column;  /* Stack the boxes vertically on smaller screens */
-    height: calc(100vh - 50px);
-    }
+    display: flex;  /* Ensure flexbox is applied */
+    flex-direction: column-reverse;  /* Reverse the order of the boxes, with the right box on top */
+    height: calc(100vh - 50px);  /* Make the container height the full viewport minus navbar height */
+    justify-content: flex-end;  /* Align children to the bottom of the container */
+  }
 
   .left-box,
   .right-box {
@@ -301,11 +303,11 @@ body {
   }
 
   .right-box {
-    margin-top: 0;  /* Ensure no extra margin at the top */
+    margin-bottom: 0;  /* Ensure no extra margin at the top */
   }
 
   .left-box {
-    height: calc(100vh - 50px);  /* Make the left box take up the remaining height of the page */
+    height: 100%;  /* Make the left box take up the remaining height of the page */
   }
 
   .left-box img {
@@ -318,7 +320,6 @@ body {
   .right-box .box {
     width: 100%;  /* Ensure each box inside the right box takes up the full width */
     height: 50px;  /* Keep the height consistent */
-    margin-bottom: 10px;  /* Maintain margin between the boxes */
   }
 
   .right-box .box:first-child {
