@@ -231,7 +231,8 @@ body {
 }
 
 .right-box .box:first-child h1 {
-  font-size: 3.9rem;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.42000000000000004rem + 2.9vw, 3.9rem);
   position: absolute; /* Absolute positioning for the "Discover" text */
   top: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
@@ -239,21 +240,24 @@ body {
 }
 
 .right-box .box:first-child p {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.6599999999999999rem + 0.2000000000000001vw, 0.9rem);
   position: absolute; /* Absolute positioning for the "Discover" text */
   bottom: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
-  margin: 50px; /* Remove any default margin */
+  margin: clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem);
 }
 
 .right-box .box .p1 {
-  font-size: 0.9rem;
-  margin: 20px; /* Remove any default margin */
-}
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.6599999999999999rem + 0.2000000000000001vw, 0.9rem);
+  margin: 20px;
+} 
 
 .right-box .box .p2 {
-  font-size: 0.9rem;
-  margin: 20px; /* Remove any default margin */
+  font-size: 0.6rem;
+  font-size: clamp(0.6rem, 0.5399999999999999rem + 0.30000000000000004vw, 0.9rem);  
+  margin: 20px;
   margin-left: auto;
   color: #FFFFFF80;
 }
@@ -282,4 +286,42 @@ body {
   border-radius: 15px;  /* Keep the box's rounded corners */
   background-color: #1F2122;  /* Set default background color */
   transition: background-color 0.3s ease;  /* Smooth transition for hover effects */
+}
+
+/* Styles for the right box staying at the top and left box underneath on smaller screens */
+@media (max-width: 768px) {
+  .discover-container {
+    flex-direction: column;  /* Stack the boxes vertically on smaller screens */
+    height: calc(100vh - 25px);
+    }
+
+  .left-box,
+  .right-box {
+    width: 100%;  /* Make both boxes take up the full width */
+  }
+
+  .right-box {
+    margin-top: 0;  /* Ensure no extra margin at the top */
+  }
+
+  .left-box {
+    height: calc(100vh - 60px);  /* Make the left box take up the remaining height of the page */
+  }
+
+  .left-box img {
+    width: 100%;  /* Ensure the image takes up the full width */
+    height: 100%;  /* Ensure the image takes up the full height of the container */
+    object-fit: cover;  /* Make sure the image covers the container */
+    border-radius: 15px;
+  }
+
+  .right-box .box {
+    width: 100%;  /* Ensure each box inside the right box takes up the full width */
+    height: 60px;  /* Keep the height consistent */
+    margin-bottom: 10px;  /* Maintain margin between the boxes */
+  }
+
+  .right-box .box:first-child {
+    height: 250px;  /* Adjust height of the first box inside right box */
+  }
 }
