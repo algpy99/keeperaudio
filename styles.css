@@ -292,7 +292,7 @@ body {
 @media (max-width: 768px) {
   .discover-container {
     flex-direction: column;  /* Stack the boxes vertically on smaller screens */
-    height: calc(100vh - 25px);
+    height: calc(100vh - 60px);
     }
 
   .left-box,
