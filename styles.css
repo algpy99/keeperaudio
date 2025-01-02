@@ -245,7 +245,7 @@ body {
   position: absolute; /* Absolute positioning for the "Discover" text */
   bottom: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
-  margin: clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem);
+  margin: 50px clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem);
 }
 
 .right-box .box .p1 {
