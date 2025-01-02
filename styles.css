@@ -231,8 +231,8 @@ body {
 }
 
 .right-box .box:first-child h1 {
-  font-size: 1rem;
-  font-size: clamp(1rem, 0.42000000000000004rem + 2.9vw, 3.9rem);
+  font-size: 2rem;
+  font-size: clamp(2rem, 1.62rem + 1.9vw, 3.9rem);
   position: absolute; /* Absolute positioning for the "Discover" text */
   top: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
@@ -240,8 +240,8 @@ body {
 }
 
 .right-box .box:first-child p {
-  font-size: 0.7rem;
-  font-size: clamp(0.7rem, 0.6599999999999999rem + 0.2000000000000001vw, 0.9rem);
+  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0.78rem + 0.09999999999999998vw, 0.9rem);
   position: absolute; /* Absolute positioning for the "Discover" text */
   bottom: 0; /* Align at the top of the box */
   left: 0; /* Align to the left of the box */
@@ -292,7 +292,7 @@ body {
 @media (max-width: 768px) {
   .discover-container {
     flex-direction: column;  /* Stack the boxes vertically on smaller screens */
-    height: calc(100vh - 60px);
+    height: calc(100vh - 50px);
     }
 
   .left-box,
@@ -305,7 +305,7 @@ body {
   }
 
   .left-box {
-    height: calc(100vh - 60px);  /* Make the left box take up the remaining height of the page */
+    height: calc(100vh - 50px);  /* Make the left box take up the remaining height of the page */
   }
 
   .left-box img {
@@ -317,7 +317,7 @@ body {
 
   .right-box .box {
     width: 100%;  /* Ensure each box inside the right box takes up the full width */
-    height: 60px;  /* Keep the height consistent */
+    height: 50px;  /* Keep the height consistent */
     margin-bottom: 10px;  /* Maintain margin between the boxes */
   }
 
